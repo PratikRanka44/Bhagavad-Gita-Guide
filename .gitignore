@@ -1,0 +1,29 @@
+# Secrets — NEVER commit this file. Add secrets via Streamlit Cloud's
+# "Secrets" dashboard field instead (see README.md > Deployment).
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+venv/
+env/
+.venv/
+working/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Local scratch (source repo clone used to rebuild data/gita_verses.json)
+bhagavad-gita/
