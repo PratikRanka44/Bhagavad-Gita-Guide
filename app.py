@@ -180,11 +180,9 @@ with loading_placeholder.container():
     st.markdown(
         f"""
         <div style="text-align:center; padding:2.5rem 0;">
-            <div style="font-size:3rem;display:inline-block;">🕉️</div>
+            <div style="font-size:3rem; display:inline-block;">🕉️</div>
             <p style="color:#B8AE99; font-size:0.9rem; max-width:420px; margin:1rem auto 0;">
                 {random.choice(GITA_FACTS)}
-                <br><br><br>
-                Loading the Gita Guide for you...
             </p>
         </div>
         <style>
@@ -200,7 +198,7 @@ with loading_placeholder.container():
 loading_placeholder.empty()
 
 with st.form("situation_form"):
-    output_language = st.radio("Response language", ["English", "Hindi"], horizontal=True)
+    output_language = st.radio("Response language", ["English", "Hindi", "Marathi"], horizontal=True)
 
     user_input = st.text_area(
         "Your situation",
@@ -235,5 +233,4 @@ if submitted:
 
             st.markdown(result["response"])
 
-
-st.markdown('<div class="om-divider">🪷 ✦ 🪷</div>', unsafe_allow_html=True)
+           

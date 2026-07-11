@@ -38,7 +38,26 @@ _OUT_OF_SCOPE_MESSAGE = {
         "यह उपकरण निर्णय, चिंता, संघर्ष या भावनात्मक कठिनाइयों जैसी बातों के लिए है। "
         "कृपया अपनी वास्तविक स्थिति बताएं।"
     ),
+    # Machine-written by the same LLM-assisted process as the rest of the UI
+    # copy — unlike the verse dataset, this is just a short interface message,
+    # not scripture, so the accuracy bar is "normal software localization,"
+    # not "verified sacred text." Still worth a native-speaker glance if you
+    # want to be thorough.
+    "Marathi": (
+        "ही वैयक्तिक परिस्थिती वाटत नाही ज्यावर गीता थेट भाष्य करू शकेल — हे साधन निर्णय, "
+        "चिंता, संघर्ष किंवा भावनिक अडचणींसारख्या गोष्टींसाठी आहे. कृपया तुम्ही प्रत्यक्षात "
+        "सामोरे जात असलेली परिस्थिती सांगा."
+    ),
 }
+
+
+def _lang_key(output_language: str) -> str:
+    lang = output_language.lower()
+    if lang.startswith("hi"):
+        return "Hindi"
+    if lang.startswith("mar"):
+        return "Marathi"
+    return "English"
 
 
 class GitaGuidePipeline:
@@ -58,7 +77,7 @@ class GitaGuidePipeline:
         scope = agents.analyze_situation(user_input)
 
         if not scope["in_scope"]:
-            lang_key = "Hindi" if output_language.lower().startswith("hi") else "English"
+            lang_key = _lang_key(output_language)
             return {
                 "in_scope": False,
                 "theme_summary": None,
@@ -77,7 +96,7 @@ class GitaGuidePipeline:
         # Backup guard: if even the top match is a weak fit, treat as
         # out-of-scope rather than forcing the closest-of-a-bad-lot verse.
         if not candidates or candidates[0]["score"] < MIN_RELEVANCE_SCORE:
-            lang_key = "Hindi" if output_language.lower().startswith("hi") else "English"
+            lang_key = _lang_key(output_language)
             return {
                 "in_scope": False,
                 "theme_summary": theme_summary,

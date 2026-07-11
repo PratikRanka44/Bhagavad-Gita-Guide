@@ -152,9 +152,21 @@ def select_verse(user_input: str, candidates: List[Dict]) -> Dict:
 
 def compose_response(user_input: str, verse: Dict, output_language: str) -> str:
     """Generate the final situational guidance, grounded in the selected verse.
-    output_language should be 'Hindi' or 'English'."""
+    output_language should be 'English', 'Hindi', or 'Marathi'.
 
-    translation = verse["hindi"] if output_language.lower().startswith("hi") else verse["english"]
+    Note: there's no dedicated Marathi field in the verse dataset — Marathi
+    responses are grounded in the Hindi translation instead (both are
+    Devanagari-script, Sanskrit-derived languages, so this grounds the LLM's
+    Marathi output more naturally than grounding off English would). This is
+    fine because the app never displays a raw translation field to the user
+    directly — only Sanskrit and transliteration are shown verbatim; the
+    translation fields are just LLM grounding context either way.
+    """
+    lang = output_language.lower()
+    if lang.startswith("hi") or lang.startswith("mar"):
+        translation = verse["hindi"]
+    else:
+        translation = verse["english"]
 
     system = (
         f"You explain Bhagavad Gita wisdom in response to what someone has shared — either "

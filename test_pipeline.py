@@ -14,7 +14,7 @@ def main():
 
     print("=== Gita Guide - CLI test ===")
     situation = input("Describe your situation: ").strip()
-    language = input("Output language (English/Hindi) [English]: ").strip() or "English"
+    language = input("Output language (English/Hindi/Marathi) [English]: ").strip() or "English"
 
     result = pipeline.run(situation, output_language=language)
 
