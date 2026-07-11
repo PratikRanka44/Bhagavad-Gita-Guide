@@ -1,4 +1,4 @@
-# 🕉️ Gita Guide
+# 🕉️ Bhagavad Gita Guide
 
 A RAG-based application that grounds real-life guidance in the Bhagavad Gita. Describe a situation you're facing or ask a genuine reflective question about life, happiness, or human nature and it retrieves a real, relevant verse in Sanskrit (with transliteration), and explains how it applies, in Hindi or English.
 
