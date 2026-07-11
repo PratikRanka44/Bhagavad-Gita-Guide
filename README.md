@@ -1,10 +1,10 @@
-# 🕉️ Gita Guide
+# 🕉️ Bhagavad Gita Guide
 
-A RAG-based application that grounds real-life guidance in the Bhagavad Gita. Describe a situation you're facing — or ask a genuine reflective question about life, happiness, or human nature — and it retrieves a real, relevant verse in Sanskrit (with transliteration), and explains how it applies, in Hindi or English.
+A RAG-based application that grounds real-life guidance in the Bhagavad Gita. Describe a situation you're facing or ask a genuine reflective question about life, happiness, or human nature and it retrieves a real, relevant verse in Sanskrit (with transliteration), and explains how it applies, in Hindi or English.
 
 Inspired by watching *Kurukshetra* on Netflix and wanting to explore whether an LLM pipeline could do, in a small way, what Krishna does for Arjuna: meet a real situation with a specific, grounded teaching rather than generic advice.
 
-**[Live demo →](#)** *(add your Streamlit Cloud URL here once deployed)*
+**[Live demo →](#)** *https://bhagavad-gita-guide.streamlit.app/*
 
 ## Why this project
 
@@ -166,10 +166,6 @@ Verse text (Sanskrit, transliteration, Hindi, English) is sourced from the open 
 - [ ] Add commentary fields (multiple commentators are available in the source dataset)
 - [ ] Add Sanskrit as a selectable output language alongside Hindi/English
 - [ ] Post-generation verification that the response never cites a verse number other than the one retrieved
-
-## License
-
-This project's code is licensed under the [MIT License](LICENSE). The underlying verse dataset is GPLv3-licensed as noted above — see [Data & Attribution](#data--attribution).
 
 ## Acknowledgments
 
