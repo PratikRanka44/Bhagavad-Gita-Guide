@@ -1,6 +1,6 @@
-# 🕉️ Gita Guide
+# 🕉️Bhagavad Gita Guide
 
-A RAG-based application that grounds real-life guidance in the Bhagavad Gita. Describe a situation you're facing — or ask a genuine reflective question about life, happiness, or human nature — and it retrieves a real, relevant verse in Sanskrit (with transliteration), and explains how it applies, in Hindi, English, or Marathi.
+A RAG-based application that grounds real-life guidance in the Bhagavad Gita. Describe a situation you're facing or ask a genuine reflective question about life, happiness, or human nature and it retrieves a real, relevant verse in Sanskrit (with transliteration), and explains how it applies, in Hindi, English, or Marathi.
 
 Inspired by watching *Kurukshetra* on Netflix and wanting to explore whether an LLM pipeline could do, in a small way, what Krishna does for Arjuna: meet a real situation with a specific, grounded teaching rather than generic advice.
 
