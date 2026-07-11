@@ -4,7 +4,7 @@ A RAG-based application that grounds real-life guidance in the Bhagavad Gita. De
 
 Inspired by watching *Kurukshetra* on Netflix and wanting to explore whether an LLM pipeline could do, in a small way, what Krishna does for Arjuna: meet a real situation with a specific, grounded teaching rather than generic advice.
 
-**[Live demo →](#)** *(add your Streamlit Cloud URL here once deployed)*
+**[Live demo →](#)** *https://bhagavad-gita-guide.streamlit.app/*
 
 ## Why this project
 
@@ -153,29 +153,6 @@ Streamlit Community Cloud apps are capped at **1GB of RAM**. This project's defa
 
 Verse text (Sanskrit, transliteration, Hindi, English) is sourced from the open [vedicscriptures/bhagavad-gita](https://github.com/vedicscriptures/bhagavad-gita) dataset — Swami Tejomayananda's Hindi translation and Swami Sivananda's English translation — licensed under **GPLv3**. This project's `scripts/build_full_dataset.py` cleans and reshapes that data into its own schema; it does not modify the underlying scholarly translations. If you redistribute or deploy this project, please preserve this attribution.
 
-**A note on Marathi**: there's no verified Marathi verse dataset in this project — I couldn't find a legitimate open, structured one to source from, and generating hundreds of scripture translations myself carried the same accuracy risk this whole project is designed to avoid. Instead, Marathi responses work the same way the app already handles all languages: the raw verse text shown to the user is always Sanskrit + transliteration only (never a raw "Marathi verse" field), and the LLM writes its own explanatory response in Marathi, grounded in the verified Hindi translation. So it's an LLM-generated response in Marathi, not a claim of a verified Marathi scripture translation — worth knowing if translation fidelity matters for your use case.
-
-## Known limitations
-
-- Retrieval quality depends on the multilingual embedding model, which is not perfect for Sanskrit-native semantic nuance — it retrieves off the English translation layer, not the Sanskrit itself
-- The scope-classification and relevance thresholds are heuristic and may need tuning for edge cases
-- Theme tags (used to sharpen retrieval) are LLM-generated via `scripts/generate_themes.py` and not manually verified per-verse
-- The lighter embedding model recommended for cloud deployment trades some retrieval precision for a smaller memory footprint
-- Marathi output quality hasn't been extensively evaluated — it's grounded in verified Hindi text but the response itself is LLM-generated, not a verified scripture translation (see [Data & Attribution](#data--attribution))
-
-## Roadmap
-
-- [ ] Cache verse embeddings to disk instead of recomputing on every launch
-- [ ] Add commentary fields (multiple commentators are available in the source dataset)
-- [ ] Add Sanskrit as a selectable output language alongside English/Hindi/Marathi
-- [ ] Post-generation verification that the response never cites a verse number other than the one retrieved
-- [ ] Voice input (speech-to-text via Groq's Whisper API) — in progress, not yet fully tested
-
-## License
-
-This project's code is licensed under the [MIT License](LICENSE). The underlying verse dataset is GPLv3-licensed as noted above — see [Data & Attribution](#data--attribution).
-
-## Acknowledgments
 
 - [vedicscriptures/bhagavad-gita](https://github.com/vedicscriptures/bhagavad-gita) for the open verse dataset
 - Swami Tejomayananda and Swami Sivananda for the underlying translations
