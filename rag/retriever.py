@@ -14,17 +14,6 @@ import json
 import os
 from typing import List, Dict
 
-# Hugging Face's newer "Xet" transfer backend (used by default via the
-# hf-xet package, pulled in transitively by huggingface-hub) has a known,
-# currently-open bug where model downloads silently hang forever with no
-# error and no further log output — exactly the "stuck after the HF Hub
-# warning, nothing else ever happens" symptom this app hit on Streamlit
-# Cloud. This must be set BEFORE sentence-transformers (and therefore
-# huggingface_hub) is imported, since that's when the download backend
-# gets selected. setdefault() means it's still overridable via a real
-# env var/secret if needed.
-os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
-
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
