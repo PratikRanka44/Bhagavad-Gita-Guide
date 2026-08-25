@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     SEO META TAGS — edit the placeholders below before publishing
+     ============================================================ -->
+<title>Gita Guide — Bhagavad Gita Guidance in Sanskrit, Hindi & English</title>
+<meta name="description" content="Describe a real situation or ask a reflective question about life, and get a genuine Bhagavad Gita verse in Sanskrit — with a grounded explanation in English, Hindi, or Marathi. Free, open-source RAG project.">
+<meta name="keywords" content="Bhagavad Gita, Gita guidance, Sanskrit verses, Krishna Arjuna, Hindu philosophy, life advice, AI Gita">
+<link rel="canonical" href="https://PRATIKRANKA44.github.io/gita-guide/">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gita Guide — Bhagavad Gita Guidance in Sanskrit, Hindi & English">
+<meta property="og:description" content="Describe a real situation or ask a reflective question, and get a genuine Bhagavad Gita verse with a grounded explanation — in English, Hindi, or Marathi.">
+<meta property="og:url" content="https://PRATIKRANKA44.github.io/gita-guide/">
+<meta property="og:image" content="https://PRATIKRANKA44.github.io/gita-guide/og-image.png">
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gita Guide — Bhagavad Gita Guidance">
+<meta name="twitter:description" content="A RAG-based tool that grounds real-life guidance in genuine Bhagavad Gita verses — Sanskrit, Hindi, English, Marathi.">
+<meta name="twitter:image" content="https://PRATIKRANKA44.github.io/gita-guide/og-image.png">
+
+<!-- Google Search Console verification —
+     replace this with the exact <meta> tag Search Console gives you
+     when you add this URL as a property (Settings > Ownership verification > HTML tag) -->
+<!-- <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE" /> -->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg-deep: #0f1522;
+    --bg-mid: #141B2E;
+    --bg-light: #1c2740;
+    --gold: #D4A537;
+    --gold-soft: rgba(212, 165, 55, 0.15);
+    --maroon: #B5451F;
+    --parchment: #F7EEDD;
+    --parchment-deep: #F0E4CC;
+    --text-warm: #F2E9D8;
+    --text-muted: #B8AE99;
+    --ink: #5A2A12;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: radial-gradient(ellipse at top, var(--bg-light) 0%, var(--bg-mid) 55%, var(--bg-deep) 100%);
+    color: var(--text-warm);
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* --- Hero --- */
+  .hero { text-align: center; padding: 4.5rem 0 3rem; }
+  .hero .om { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+  .hero p.tagline {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    max-width: 560px;
+    margin: 0 auto 2.2rem;
+  }
+  .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.9rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: filter 0.15s ease, transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--maroon) 100%);
+    color: #1B0F08;
+  }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-secondary {
+    border: 1px solid rgba(212, 165, 55, 0.4);
+    color: var(--text-warm);
+  }
+  .btn-secondary:hover { background: var(--gold-soft); }
+
+  /* --- Divider --- */
+  .om-divider {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin: 3rem 0;
+    opacity: 0.75;
+    letter-spacing: 0.6rem;
+  }
+
+  /* --- Sections --- */
+  section { padding: 1rem 0; }
+  section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-warm);
+  }
+  section > p.lead {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* --- Pipeline steps --- */
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .pipeline .step {
+    text-align: center;
+    padding: 1.4rem 1rem;
+    border: 1px solid rgba(212, 165, 55, 0.2);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+  .pipeline .step .num {
+    display: inline-block;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 0.7rem;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .pipeline .step h3 { font-size: 1.05rem; margin-bottom: 0.4rem; color: var(--text-warm); }
+  .pipeline .step p { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* --- Feature grid --- */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  .feature {
+    padding: 1.4rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(212, 165, 55, 0.15);
+  }
+  .feature h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--gold); }
+  .feature p { font-size: 0.92rem; color: var(--text-muted); }
+
+  /* --- Verse card preview (manuscript style, matches the app) --- */
+  .verse-preview {
+    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    margin: 0 auto;
+    max-width: 560px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  }
+  .verse-preview .vh {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--ink);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .verse-preview .vs {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--ink);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+  .verse-preview .vt { color: #7A6142; font-style: italic; font-size: 0.9rem; margin-bottom: 1rem; }
+  .verse-preview .vr { color: #4a3520; font-size: 0.95rem; }
+
+  /* --- Screenshot placeholder --- */
+  .screenshot-placeholder {
+    border: 1px dashed rgba(212, 165, 55, 0.4);
+    border-radius: 12px;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* --- Attribution --- */
+  .attribution {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .attribution a { color: var(--gold); }
+
+  footer {
+    text-align: center;
+    padding: 3rem 0 2.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2.2rem; }
+    .pipeline { grid-template-columns: 1fr 1fr; }
+    .features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="om">🕉️</div>
+    <h1>Gita Guide</h1>
+    <p class="tagline">
+      Describe a situation you're facing — or ask a genuine reflective question about life —
+      and get a real Bhagavad Gita verse in Sanskrit, with a grounded explanation in
+      English, Hindi, or Marathi.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://bhagavad-gita-guide.streamlit.app/" target="_blank" rel="noopener">Try it live →</a>
+      <a class="btn btn-secondary" href="https://github.com/PratikRanka44/gita-guide" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+
+  <div class="om-divider">🪷 ✦ 🪷</div>
+
+  <!-- What it is -->
+  <section>
+    <h2>A verse, not a guess</h2>
+    <p class="lead">
+      Most AI tools asked about scripture will misquote it — wrong verse numbers, invented
+      Sanskrit, blended translations. Gita Guide is built around one rule: the model never
+      generates the source text. Every verse shown is retrieved verbatim from a verified
+      719-verse dataset covering all 18 chapters. The AI only writes the explanation layered
+      on top.
+    </p>
+    <div class="verse-preview">
+      <div class="vh">Bhagavad Gita 2.47</div>
+      <div class="vs">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</div>
+      <div class="vt">karmaṇy evādhikāras te mā phaleṣu kadācana...</div>
+      <div class="vr">"You have a right to your actions, but never to the fruits of those actions..."</div>
+    </div>
+  </section>
+
+  <div class="om-divider">🪷 ✦ 🪷</div>
+
+  <!-- How it works -->
+  <section>
+    <h2>How it works</h2>
+    <div class="pipeline">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Scope check</h3>
+        <p>Is this a real situation or reflective question the Gita can speak to?</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Retrieval</h3>
+        <p>Multilingual semantic search finds the most relevant verses.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Selection</h3>
+        <p>The single best-fit verse is chosen — never invented.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>Explanation</h3>
+        <p>A short, grounded response in your chosen language.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="om-divider">🪷 ✦ 🪷</div>
+
+  <!-- Features -->
+  <section>
+    <h2>What's inside</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Full corpus</h3>
+        <p>All 719 verses across all 18 chapters — Sanskrit, IAST transliteration, Hindi, and English.</p>
+      </div>
+      <div class="feature">
+        <h3>Four languages</h3>
+        <p>Get guidance in English, Hindi, or Marathi. Type your situation in any of them too.</p>
+      </div>
+      <div class="feature">
+        <h3>Handles real & reflective questions</h3>
+        <p>"I'm scared to change careers" and "what is the meaning of happiness" both work — trivia and off-topic requests are politely declined.</p>
+      </div>
+      <div class="feature">
+        <h3>Verified sourcing</h3>
+        <p>Verse text comes from an open, citable dataset — not generated by an LLM. See the GitHub repo for full attribution.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="om-divider">🪷 ✦ 🪷</div>
+
+  <!-- Screenshot placeholder -->
+  <section>
+    <h2>See it in action</h2>
+    <!--
+      Replace this placeholder with a real screenshot once you have one:
+      <img src="screenshot.png" alt="Gita Guide app showing a retrieved verse and explanation"
+           style="width:100%; max-width:720px; display:block; margin:0 auto; border-radius:12px; border:1px solid rgba(212,165,55,0.3);">
+    -->
+    <div class="screenshot-placeholder">
+      📸 Add a real screenshot here — save it as <code>screenshot.png</code> in this folder
+      and swap the HTML comment above for the &lt;img&gt; tag.
+    </div>
+  </section>
+
+  <div class="om-divider">🪷 ✦ 🪷</div>
+
+  <!-- Attribution -->
+  <section>
+    <p class="attribution">
+      Verse text sourced from the open
+      <a href="https://github.com/vedicscriptures/bhagavad-gita" target="_blank" rel="noopener">vedicscriptures/bhagavad-gita</a>
+      dataset (GPLv3) — Swami Tejomayananda's Hindi translation and Swami Sivananda's English
+      translation. Full attribution and data details in the
+      <a href="https://github.com/PratikRanka44/gita-guide" target="_blank" rel="noopener">GitHub README</a>.
+    </p>
+  </section>
+
+  <footer>
+    Built by Pratik Ranka ·
+    <a href="https://github.com/PratikRanka44/gita-guide" target="_blank" rel="noopener">Source on GitHub</a> ·
+    <a href="https://bhagavad-gita-guide.streamlit.app/" target="_blank" rel="noopener">Try the app</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

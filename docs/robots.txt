@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://PRATIKRANKA44.github.io/gita-guide/sitemap.xml
